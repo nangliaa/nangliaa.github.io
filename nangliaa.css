@@ -1,11 +1,13 @@
 @font-face {
     font-family: 'Olima';
     src: url('Olima.woff2') format('woff2'),
-        url('Olima.woff') format('woff');
+        url('Olima.woff') format('woff')
+        url('Oliima.ttf') format('ttf'),;
     font-weight: 500;
     font-style: normal;
     font-display: swap;
 }
 body {
-    background-color: #ff00d4;
+    background-color: #c060ff;
+    color: #ff0000;
 }
