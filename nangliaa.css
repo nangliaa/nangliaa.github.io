@@ -1,20 +1,38 @@
 @font-face {
-    font-family: 'Oliima';
+    font-family: 'Olima';
     src: url('Olima.woff2') format('woff2'),
         url('Olima.woff') format('woff'),
-        url('Oliima.ttf') format('ttf');
+        url('Olima.ttf') format('ttf');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
 }
+
 body {
-    font-family: 'Oliima';
-    background-color: #e080ff;
+    font-family: 'Olima';
+    background-color: #f0d0ff;
     color: #ff0000;
     margin-left: 40px;
 }
+
 h1 {
-    font-size: 2.6em;
+    font-size: 48px;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+h3 {
+    font-size: 32px;
+}
+
+a {
+	font-size: 24px;
+}
+
+p {
+	font-size: 24px;
 }
 
 table, th, td {
