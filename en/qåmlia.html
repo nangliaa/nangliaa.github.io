@@ -4,28 +4,150 @@
         <link rel="stylesheet" href="/nangliaa.css">
     </head>
     <body>
-        <h1>Qåmlia</h1>
-        <p>Qåmlia is a program wið which you can do almost anyþiŋ on your computer usiŋ only simple keypresses.</p>
-		<h2>Triggers:</h2>
-		<p>Written on format:<br>a (bcde)<br>
-			Ðis activates when pressiŋ [a], if [b], [c], [d] & [e] are simultaneously held down. If held-down keys are on anoðer device ðan ðe specified one, ðey still take effect, meaniŋ ðat held-down keys cannot be distinguished by device as of now.
-		</p>
-		<h2>Trigger flags:</h2>
-		<p>
-			-dev: What device ðe key should be pressed on. Doesn’t affect ðe held-down keys. Get device by usiŋ %D in paste or window.<br>
-			-exe: What program owns ðe current window. Uses special drive notation, so use %x to get paþ and name. Full paþ required.<br>
-			-win: What name ðe current window can have to allow triggeriŋ. Full name required.
-		</p>
-		<h2>Constants:</h2>
-		<p>
-			Write #[name] [value];<br>Write all constants first in ðe file. To use, write @[name] somewhere below to make ðe program interpret it as [value].
-		</p>
-		<h2>Functions:</h2>
-		<p>
-			paste: Paste a predetermined text. You can also use % + a letter to create a striŋ formatted at runtime (when it is pasted). For example, "paste %H:%M:%S;" will always paste ðe current time of day.<br>
-			remap: presses and releases anoðer key when trigger is pressed and released. Can be used to access keys not on your keyboard.<br>
-			run: Runs a command þrough ðe command prompt. Mainly used for shortcut-runniŋ programs. For runniŋ a specific file wið ðe program, write its file name after program name. Anyþiŋ not on ðe "Path" environment variable will require full paþ (It is not recommended to add stuff to Path just for ðis). Constants are recommended if ðe same file is used multiple times.<br>
-			window: Shows a window wið text. All formattiŋ from paste wið % still applies here.
-		</p>
+        <h1 id="top">Qåmlia</h1>
+			<p>Qåmlia is a program wið which you can do almost anyþiŋ on your computer usiŋ only simple keypresses.</p>
+			<h2 id="definitions">Definitions</h2>
+				<p>Ðese are ðe rows as understood by ðe music functionality:</p>
+				<table>
+					<tr id="row1">
+						<td>1</td>
+						<td><span style="border-bottom: 1px dotted black;" title="Esc">⎋</span></td>
+						<td><span style="border-bottom: 1px dotted black;" title="F1"></span></td>
+						<td><span style="border-bottom: 1px dotted black;" title="F2"></span></td>
+						<td><span style="border-bottom: 1px dotted black;" title="F3"></span></td>
+						<td><span style="border-bottom: 1px dotted black;" title="F4"></span></td>
+						<td><span style="border-bottom: 1px dotted black;" title="F5"></span></td>
+						<td><span style="border-bottom: 1px dotted black;" title="F6"></span></td>
+						<td><span style="border-bottom: 1px dotted black;" title="F7"></span></td>
+						<td><span style="border-bottom: 1px dotted black;" title="F8"></span></td>
+						<td><span style="border-bottom: 1px dotted black;" title="F9"></span></td>
+						<td><span style="border-bottom: 1px dotted black;" title="F10"></span></td>
+						<td><span style="border-bottom: 1px dotted black;" title="F11"></span></td>
+						<td><span style="border-bottom: 1px dotted black;" title="F12"></span></td>
+						<td><span style="border-bottom: 1px dotted black;" title="Delete / ⌦"></span></td>
+					</tr>
+					<tr id="row2">
+						<td>2</td>
+						<td><span style="border-bottom: 1px dotted black;" title="Section Sign">§</span></td>
+						<td>1</td>
+						<td>2</td>
+						<td>3</td>
+						<td>4</td>
+						<td>5</td>
+						<td>6</td>
+						<td>7</td>
+						<td>8</td>
+						<td>9</td>
+						<td>0</td>
+						<td>+</td>
+						<td><span style="border-bottom: 1px dotted black;" title="Acute">´</span></td>
+						<td><span style="border-bottom: 1px dotted black;" title="Home">⇱</span></td>
+					</tr>
+					<tr id="row3">
+						<td>3</td>
+						<td><span style="border-bottom: 1px dotted black;" title="Tab">↹</span></td>
+						<td>Q</td>
+						<td>W</td>
+						<td>E</td>
+						<td>R</td>
+						<td>T</td>
+						<td>Y</td>
+						<td>U</td>
+						<td>I</td>
+						<td>O</td>
+						<td>P</td>
+						<td>Å</td>
+						<td><span style="border-bottom: 1px dotted black;" title="Diæresis / Trema / Umlaut">¨</span></td>
+						<td><span style="border-bottom: 1px dotted black;" title="Page Up"></span></td>
+					</tr>
+					<tr id="row4">
+						<td>4</td>
+						<td><span style="border-bottom: 1px dotted black;" title="Caps Lock">⇪</span></td>
+						<td>A</td>
+						<td>S</td>
+						<td>D</td>
+						<td>F</td>
+						<td>G</td>
+						<td>H</td>
+						<td>J</td>
+						<td>K</td>
+						<td>L</td>
+						<td>Ö</td>
+						<td>Ä</td>
+						<td><span style="border-bottom: 1px dotted black;" title="Apostrophe">'</span></td>
+						<td><span style="border-bottom: 1px dotted black;" title="Page Down"></span></td>
+					</tr>
+					<tr id="row5">
+						<td>5</td>
+						<td><span style="border-bottom: 1px dotted black;" title="Lesser Ðan"><</span></td>
+						<td>Z</td>
+						<td>X</td>
+						<td>C</td>
+						<td>V</td>
+						<td>B</td>
+						<td>N</td>
+						<td>M</td>
+						<td>,</td>
+						<td>.</td>
+						<td>-</td>
+						<td><span style="border-bottom: 1px dotted black;" title="Right Shift">⇧</span></td>
+						<td><span style="border-bottom: 1px dotted black;" title="Return">↵</span></td>
+						<td><span style="border-bottom: 1px dotted black;" title="End">⇲</span></td>
+					</tr>
+				</table>
+			<h2 id="triggers">Triggers:</h2>
+				<p>
+					Written on format:<br>a (bcde)<br>
+					Ðis activates when pressiŋ [a], if [b], [c], [d] & [e] are simultaneously held down. If held-down keys are on anoðer device ðan ðe specified one, ðey still take effect, meaniŋ ðat held-down keys cannot be distinguished by device as of now.
+				</p>
+			<h2 id="flags">Trigger flags:</h2>
+				<ul>
+					<li>-dev: What device ðe key should be pressed on. Doesn't affect ðe held-down keys. Get device by usiŋ %D in paste or window.</li>
+					<li>-exe: What program owns ðe current window. Uses special drive notation, so use %x to get paþ and name. Full paþ required.</li>
+					<li>-win: What name ðe current window can have to allow triggeriŋ. Full name required.
+				</ul>
+			<h2 id="constants">Constants:</h2>
+				<p>
+					Write #[name] [value];<br>Write all constants first in ðe file. To use, write @[name] somewhere below to make ðe program interpret it as [value].
+				</p>
+			<h2 id="functions">Functions:</h2>
+				<h3 id="music">music</h3>
+					<p>
+						Switches your keyboard to play sounds instead of doiŋ normal þiŋs.
+					</p>
+					<h4 id="osc">Oscillators:</h4>
+					<ul>
+						<li>sin</li>
+						<li>squ</li>
+						<li>tri</li>
+						<li>saw</li>
+					</ul>
+					<h4 id="osc">Instrument Layouts:</h4>
+					<ul>
+						<li>acc</li>
+						<li>bas</li>
+						<li>pia: Piano on rows 2 & 3, wið row 3 correspondiŋ to white keys. Starts on ↹</li>
+					</ul>
+					<h4 id="music-example">Example:</h4>
+					<p>
+						<strong>m (MŜ): music (-ins pia -osc squ);</strong><br>
+						When holdiŋ Menu and Right Shift and pressiŋ M, music mode starts wið ðe "piano" layout and ðe sound of a square wave, regardless of device.
+					</p>
+				<h3 id="paste">paste</h3>
+					<p>
+						Paste a predetermined text. You can also use % + a letter to create a striŋ formatted at runtime (when it is pasted). For example, "paste %H:%M:%S;" will always paste ðe current time of day.
+					</p>
+				<h3 id="remap">remap</h3>
+					<p>
+						Presses and releases anoðer key when trigger is pressed and released. Can be used to access keys not on your keyboard. Doesn't work wið held-down keys as of now.
+					</p>
+				<h3 id="run">run</h3>
+					<p>
+						Runs a command þrough ðe command prompt. Mainly used for shortcut-runniŋ programs. For runniŋ a specific file wið ðe program, write its file name after program name. Anyþiŋ not on ðe "Path" environment variable will require full paþ (It is not recommended to add stuff to Path just for ðis). Constants are recommended if ðe same file is used multiple times.
+					</p>
+				<h3 id="window">window</h3>
+					<p>
+						Shows a window wið text. All formattiŋ from paste wið % still applies here.
+					</p>
     </body>
 </html>
