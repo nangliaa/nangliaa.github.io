@@ -4,9 +4,11 @@
         <link rel="stylesheet" href="/nangliaa.css">
     </head>
     <body>
+	<div class="content">
         <h1 id="top">Qåmlia</h1>
 			<p>Qåmlia is a program wið which you can do almost anyþiŋ on your computer usiŋ only simple keypresses.</p>
 			<h2 id="definitions">Definitions</h2>
+			<div>
 				<p>Ðese are ðe rows as understood by ðe music functionality:</p>
 				<table>
 					<tr id="row1">
@@ -118,23 +120,31 @@
 						<td><span style="border-bottom: 1px dotted black;" title="Right">→</span></td>
 					</tr>
 				</table>
+			</div>
 			<h2 id="triggers">Triggers:</h2>
+			<div>
 				<p>
 					Written on format:<br>a (bcde)<br>
 					Ðis activates when pressiŋ [a], if [b], [c], [d] & [e] are simultaneously held down. If held-down keys are on anoðer device ðan ðe specified one, ðey still take effect, meaniŋ ðat held-down keys cannot be distinguished by device as of now.
 				</p>
+			</div>
 			<h2 id="flags">Trigger flags:</h2>
+			<div>
 				<ul>
 					<li>-dev: What device ðe key should be pressed on. Doesn't affect ðe held-down keys. Get device by usiŋ %D in paste or window.</li>
 					<li>-exe: What program owns ðe current window. Uses special drive notation, so use %x to get paþ and name. Full paþ required.</li>
 					<li>-win: What name ðe current window can have to allow triggeriŋ. Full name required.
 				</ul>
+			</div>
 			<h2 id="constants">Constants:</h2>
+			<div>
 				<p>
 					Write #[name] [value];<br>Write all constants first in ðe file. To use, write @[name] somewhere below to make ðe program interpret it as [value].
 				</p>
+			</div>
 			<h2 id="functions">Functions:</h2>
 				<h3 id="music">music</h3>
+				<div>
 					<p>
 						Switches your keyboard to play sounds instead of doiŋ normal þiŋs.
 					</p>
@@ -156,21 +166,31 @@
 						<strong>m (MŜ): music (-ins pia -osc squ);</strong><br>
 						When holdiŋ Menu and Right Shift and pressiŋ M, music mode starts wið ðe "piano" layout and ðe sound of a square wave, regardless of device.
 					</p>
+				</div>
 				<h3 id="paste">paste</h3>
+				<div>
 					<p>
 						Paste a predetermined text. You can also use % + a letter to create a striŋ formatted at runtime (when it is pasted). For example, "paste %H:%M:%S;" will always paste ðe current time of day.
 					</p>
+				</div>
 				<h3 id="remap">remap</h3>
+				<div>
 					<p>
 						Presses and releases anoðer key when trigger is pressed and released. Can be used to access keys not on your keyboard. Doesn't work wið held-down keys as of now.
 					</p>
+				</div>
 				<h3 id="run">run</h3>
+				<div>
 					<p>
 						Runs a command þrough ðe command prompt. Mainly used for shortcut-runniŋ programs. For runniŋ a specific file wið ðe program, write its file name after program name. Anyþiŋ not on ðe "Path" environment variable will require full paþ (It is not recommended to add stuff to Path just for ðis). Constants are recommended if ðe same file is used multiple times.
 					</p>
+				</div>
 				<h3 id="window">window</h3>
+				<div>
 					<p>
 						Shows a window wið text. All formattiŋ from paste wið % still applies here.
 					</p>
+				</div>
+	</div>
     </body>
 </html>

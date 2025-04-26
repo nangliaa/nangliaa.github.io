@@ -34,16 +34,33 @@ h4 {
 	margin: 0px;
 }
 
-a {
+p, a {
 	font-size: 20px;
-}
-
-p {
-	font-size: 20px;
+	margin: 0px;
 }
 
 li {
 	font-size: 20px;
+}
+
+.content * {
+  margin-left: 0;
+}
+
+.content > * {
+  margin-left: 0px;
+}
+
+.content > div > * {
+  margin-left: 20px;
+}
+
+.content > div > div > * {
+  margin-left: 40px;
+}
+
+.content > div > div > div > * {
+  margin-left: 60px;
 }
 
 table, th, td {
