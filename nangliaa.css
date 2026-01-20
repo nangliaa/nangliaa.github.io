@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Židlia';
-    src: url('židlia.woff2') format('woff2'),
-	url('židlia.woff') format('woff');
+    src: url('/židlia.woff2') format('woff2'),
+	url('/židlia.woff') format('woff');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
