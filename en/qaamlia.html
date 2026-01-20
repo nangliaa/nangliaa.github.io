@@ -1,13 +1,27 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="/nangliaa.css">
-    </head>
-    <body>
+	<head>
+		<link rel="stylesheet" href="/nangliaa.css">
+	</head>
+	<body>
 	<div class="content">
-        <h1 id="top">Qåmlia</h1>
-			<a href="https://github.com/nangliaa/qaamlia">https://github.com/nangliaa/qaamlia</a>
-			<p>Qåmlia is a program wið whič you can do almost anyþiŋ on your computer usiŋ only simple keypresses.</p>
+		<h1 id="top">Qåmlia</h1>
+			<p>Qåmlia is a program wið whič you can do almost anyþiŋ on your computer usiŋ only simple keypresses. Precompiled installers exist for Debian GNU/Linux (also works for Mint and Ubuntu) and Windows, boþ x86_64. Oððer Linux and Windows architectures are (probably) possible to compile usiŋ ðe source code.</p>
+			<h2 id="source">Source</h2>
+			<div>
+				Qåmlia is free software, available under ðe GNU General Public License v3 or later. Source code is also available on <a href="https://github.com/nangliaa/qaamlia">https://github.com/nangliaa/qaamlia</a>.
+				<h3 id="find">Find in source</h3>
+				<div>
+					<ul>
+						<li>
+							All trigger keys are available in <a href="https://github.com/nangliaa/qaamlia/blob/main/q%C3%A5mliac/init.cpp">qåmliac/init.cpp</a>. Ðey are on ðe format <code>{ { L'ŵ', (L'L' << BYTEŠIFT1) | L'W' }, VLSUPER }, // 5B</code>, meaniŋ ðat ðe left super/win/command(once macOS support is added) key can be referred to usiŋ eiðer <code>ŵ</code> or <code>½LW</code>.
+						</li>
+						<li>
+							All %-format opṫons are in <a href="https://github.com/nangliaa/qaamlia/blob/main/q%C3%A5mliac/extra.cpp">qåmliac/extra.cpp</a>, in ðe formatStriŋ() funcṫon.
+						</li>
+					</ul>
+				</div>
+			</div>
 			<h2 id="definiṫons">Definiṫons</h2>
 			<div>
 				<p>Ðese are ðe rows as understood by ðe music funcṫonality:</p>
@@ -133,7 +147,7 @@
 			<div>
 				<ul>
 					<li>-dev: What device ðe key šould be pressed on. Doesn't affect ðe held-down keys. Get device by usiŋ %D in paste or window.</li>
-					<li>-exe: What program owns ðe current window. Uses speċal drive notation, so use %x to get paþ and name. Full paþ required.</li>
+					<li>-exe: What program owns ðe current window. Uses speċal drive notaṫon, so use %x to get paþ and name. Full paþ required.</li>
 					<li>-win: What name ðe current window can have to allow triggeriŋ. Full name required.
 				</ul>
 			</div>
@@ -143,10 +157,50 @@
 					Write #[name] [value];<br>Write all constants first in ðe file. To use, write @[name] somewhere below to make ðe program interpret it as [value].
 				</p>
 			</div>
-			<h2 id="functions">Functions:</h2>
+			<h2 id="funcṫons">Funcṫons:</h2>
+				<h3 id="auth">auth</h3>
+				<div>
+					<p>
+						Syntax: <code>auth [secret_code];</code><br>
+						Paste a RFC 6238-compliant 6-number TOTP (for 2-factor auþentisaṫon) generated usiŋ ðe given code. Ðe code čanges every 30 seconds.
+					</p>
+				</div>
+				<h3 id="block">block</h3>
+				<div>
+					<p>
+						Syntax: <code>block [key];</code><br>
+						Intercepts and blocks [key], meaniŋ it won't have any effect EXCEPT in ðis program. Is not guaranteed to always work on Windows.
+					</p>
+				</div>
+				<h3 id="ctrlblock">ctrlblock</h3>
+				<div>
+					<p>
+						Syntax: <code>ctrlblock [key];</code><br>
+						Intercepts and blocks all keys pressed while [key] is down, meaniŋ ðey won't have any effect EXCEPT in ðis program. Is not guaranteed to always work on Windows.
+					</p>
+				</div>
+				<h3 id="exit">exit</h3>
+				<div>
+					<p>
+						Syntax: <code>exit;</code><br>
+						Exits ðe program.
+					</p>
+				</div>
+				<h3 id="lia">lia</h3>
+				<div>
+					<p>
+						Syntax: <code>lia [command];</code><br>
+						Sends a command to ðe Java part of ðe program.
+					</p>
+					<h4 id="lia_cmds">Commands:</h4>
+					<ul>
+						<li>text: Opens a text editor wið Unicode šow support.</li>
+					</ul>
+				</div>
 				<h3 id="music">music</h3>
 				<div>
 					<p>
+						Syntax: <code>music (-ins [instrument] -osc [oscillator]);</code><br>
 						Switčes your keyboard to play sounds instead of doiŋ normal þiŋs.
 					</p>
 					<h4 id="osc">Oscillators:</h4>
@@ -162,36 +216,61 @@
 						<li>bas: Accordion chord buttons wið main tone on row 2, major þird above on row 1, and major, minor and (major) sevenþ on rows 3, 4 and 5 respectively.</li>
 						<li>pia: Piano on rows 2 & 3, wið row 3 correspondiŋ to white keys. Starts on <span style="border-bottom: 1px dotted;" title="Tab">↹</span> wið [g/G₃] and goes up to [f''/F₅] on <span style="border-bottom: 1px dotted;" title="Return">↵</span>.</li><!--actually ′′-->
 					</ul>
-					<h4 id="music-example">Example:</h4>
+					<h4 id="music-example2">Example 2:</h4>
 					<p>
 						<strong>m (MŜ): music (-ins pia -osc squ);</strong><br>
 						When holdiŋ Menu and Right Šift and pressiŋ M, music mode starts wið ðe "piano" layout and ðe sound of a square wave, regardless of device.
+					</p>
+
+					<h4 id="music-example2">Example 2:</h4>
+					<p>
+						<strong>m (MŜ): music (-ins pia -osc squ -dev xxx)(-ins acc -osc sin -dev yyy);</strong><br>
+						When holdiŋ Menu and Right Šift and pressiŋ M, music mode starts wið ðe "piano" layout and ðe sound of a square wave on device xxx, but accordion layout and sine wave on device yyy.
 					</p>
 				</div>
 				<h3 id="paste">paste</h3>
 				<div>
 					<p>
-						Paste a predetermined text. You can also use % + a letter to create a striŋ formatted at runtime (when it is pasted). For example, "paste %H:%M:%S;" will always paste ðe current time of day.
+						Syntax: <code>paste [text];</code><br>
+						Pastes (sendiŋ Ctrl+V) a predetermined text. You can also use % + a letter to create a striŋ formatted at runtime (when it is pasted). For example, "paste %H:%M:%S;" will always paste ðe current time of day.<br>
+						On Qubes OS, ðis can paste into oððer qubes from dom0 as well.
+					</p>
+				</div>
+				<h3 id="pastes">pastes</h3>
+				<div>
+					<p>
+						Syntax: <code>pastes [text];</code><br>
+						Identical to paste except sendiŋ Ctrl+Šift+V instead (for terminal, for example). Same result can be ačieved by holdiŋ down Šift while usiŋ normal paste.
 					</p>
 				</div>
 				<h3 id="remap">remap</h3>
 				<div>
 					<p>
+						Syntax: <code>remap [key];</code><br>
 						Presses and releases anoðer key when trigger is pressed and released. Can be used to access keys not on your keyboard.
+					</p>
+				</div>
+				<h3 id="reload">reload</h3>
+				<div>
+					<p>
+						Syntax: <code>reload;</code><br>
+						Reloads ðe program wið any čanges made in ðe file.
 					</p>
 				</div>
 				<h3 id="run">run</h3>
 				<div>
 					<p>
+						Syntax: <code>run [command];</code><br>
 						Runs a command þrough ðe command prompt. Mainly used for šortcut-runniŋ programs. For runniŋ a specific file wið ðe program, write its file name after program name. Anyþiŋ not on ðe "Path" environment variable will require full paþ (It is not recommended to add stuff to Path just for ðis). Constants are recommended if ðe same file is used multiple times.
 					</p>
 				</div>
 				<h3 id="window">window</h3>
 				<div>
 					<p>
-						Shows a window wið text. All formattiŋ from paste wið % still applies here.
+						Syntax: <code>window [text];</code><br>
+						Shows a window wið text. All formattiŋ from paste wið % still applies here. Press Esc(E / ½ES) to close window again.
 					</p>
 				</div>
-	</div>
-    </body>
+		</div>
+	</body>
 </html>
