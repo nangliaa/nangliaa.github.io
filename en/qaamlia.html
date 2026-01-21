@@ -6,24 +6,22 @@
 	<body>
 	<div class="content">
 		<h1 id="top">Qåmlia</h1>
-			<p>Qåmlia is a program wið whič you can do almost anyþiŋ on your computer usiŋ only simple keypresses. Precompiled installers exist for Debian GNU/Linux (also works for Mint and Ubuntu) and Windows, boþ x86_64. Oððer Linux and Windows architectures are (probably) possible to compile usiŋ ðe source code.</p>
+			<p>Qåmlia is a program wið whič you can do almost anyþiŋ on your computer usiŋ only simple keypresses. Precompiled installers exist for Debian GNU/Linux (also works for Mint and Ubuntu) and Windows, boþ x86_64. Oððer Linux and Windows architectures are (probably) possible to compile usiŋ ðe source code. On Linux, evdev is used, meaniŋ it needs to run as root (sudo qåmlia).</p>
 			<h2 id="source">Source</h2>
 			<div>
-				Qåmlia is free software, available under ðe GNU General Public License v3 or later. Source code is also available on <a href="https://github.com/nangliaa/qaamlia">https://github.com/nangliaa/qaamlia</a>.
+				<p>Qåmlia is free software, available under ðe GNU General Public License v3 or later. Source code is also available on <a href="https://github.com/nangliaa/qaamlia">https://github.com/nangliaa/qaamlia</a>.</p>
 				<h3 id="find">Find in source</h3>
-				<div>
-					<ul>
-						<li>
-							All trigger keys are available in <a href="https://github.com/nangliaa/qaamlia/blob/main/q%C3%A5mliac/init.cpp">qåmliac/init.cpp</a>. Ðey are on ðe format <strong>{ { L'ŵ', (L'L' << BYTEŠIFT1) | L'W' }, VLSUPER }, // 5B</strong>, meaniŋ ðat ðe left super/win/command(once macOS support is added) key can be referred to usiŋ eiðer <strong>ŵ</strong> or <strong>½LW</strong>.
-						</li>
-						<li>
-							All %-format opṫons are in <a href="https://github.com/nangliaa/qaamlia/blob/main/q%C3%A5mliac/extra.cpp">qåmliac/extra.cpp</a>, in ðe formatStriŋ() funcṫon.
-						</li>
-						<li>
-							All arguments to ðe program are in <a href="https://github.com/nangliaa/qaamlia/blob/main/q%C3%A5mliaj/src/org/nangliaa/qaamlia/Qaamlia.java">qåmliaj/src/org/nangliaa/qaamlia/Qaamlia.java</a>.
-						</li>
-					</ul>
-				</div>
+				<ul>
+					<li>
+						All trigger keys are available in <a href="https://github.com/nangliaa/qaamlia/blob/main/q%C3%A5mliac/init.cpp">qåmliac/init.cpp</a>. Ðey are on ðe format <strong>{ { L'ŵ', (L'L' << BYTEŠIFT1) | L'W' }, VLSUPER }, // 5B</strong>, meaniŋ ðat ðe left super/win/command(once macOS support is added) key can be referred to usiŋ eiðer <strong>ŵ</strong> or <strong>½LW</strong>.
+					</li>
+					<li>
+						All %-format opṫons are in <a href="https://github.com/nangliaa/qaamlia/blob/main/q%C3%A5mliac/extra.cpp">qåmliac/extra.cpp</a>, in ðe formatStriŋ() funcṫon.
+					</li>
+					<li>
+						All arguments to ðe program are in <a href="https://github.com/nangliaa/qaamlia/blob/main/q%C3%A5mliaj/src/org/nangliaa/qaamlia/Qaamlia.java">qåmliaj/src/org/nangliaa/qaamlia/Qaamlia.java</a>.
+					</li>
+				</ul>
 			</div>
 			<h2 id="args">Arguments</h2>
 			<div>
@@ -47,8 +45,8 @@
 			</div>
 			<h2 id="file">File</h2>
 			<div>
-				Ðe file ðat ðis program reads its commands from is by default [AppData]/Naŋliå/qåmlia/qåmlia.qlia, where [AppData] is /home/USERNAME/.local/share/ on GNU/Linux and C:\Users\USERNAME\AppData on Windows. You can make it load anoððer file instead usiŋ ðe -f or --file arguments when runniŋ ðe program.
-			</div
+				Ðe file ðat ðis program reads its commands from is by default [AppData]/Naŋliå/qåmlia/qåmlia.qlia, where [AppData] is /home/USERNAME/.local/share/ on GNU/Linux (or /root/.local/share when runniŋ as root, whič is ðe way ðat works) and C:\Users\USERNAME\AppData on Windows. You can make it load anoððer file instead usiŋ ðe -f or --file arguments when runniŋ ðe program.
+			</div>
 			<h2 id="definiṫons">Definiṫons</h2>
 			<div>
 				<p>Ðese are ðe rows as understood by ðe music funcṫonality:</p>
@@ -166,7 +164,7 @@
 			<h2 id="triggers">Triggers:</h2>
 			<div>
 				<p>
-					Written on format:<br>a (bcde)<br>
+					Written on format:<br>a (bcde) [<a href="#flags">trigger_flags</a>]<br>
 					Ðis activates when pressiŋ [a], if [b], [c], [d] & [e] are simultaneously held down. If held-down keys are on anoðer device ðan ðe specified one, ðey still take effect, meaniŋ ðat held-down keys cannot be distinguišed by device as of now.
 				</p>
 			</div>
@@ -228,7 +226,7 @@
 				<div>
 					<p>
 						Syntax: <strong>music (-ins [instrument] -osc [oscillator]);</strong><br>
-						Switčes your keyboard to play sounds instead of doiŋ normal þiŋs.
+						Switčes your keyboard to play sounds instead of doiŋ normal þiŋs. If -dev is given in one parenþesis (like music (-ins acc -osc tri -dev xyz);) only ðat device will have ðis layout, and you can add a new parenþesis wið anoððer layout or oscillator on anoððer device. If you have multiple parenþesis and one lacks a device, ðat one will be used for all oððer devices. Only keyboards are affected, not mice.
 					</p>
 					<h4 id="osc">Oscillators:</h4>
 					<ul>
